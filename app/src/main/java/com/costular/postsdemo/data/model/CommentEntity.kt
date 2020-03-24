@@ -5,10 +5,9 @@ import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
-
 @Entity(tableName = "comments",
     indices = [
-        Index(value = ["post_id"], unique = true)
+        Index(value = ["post_id"])
     ]
 )
 data class CommentEntity(

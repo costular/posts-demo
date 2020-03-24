@@ -44,7 +44,7 @@ class PostOrchestrator(
             .doOnSuccess { commentsLocal.insertComments(it) }
             .flatMap { postRemote.getPosts() }
 
-    override fun retrieveLocal(): Flowable<List<PostEntity>> = postLocal.getPosts()
+    override fun retrieveLocal(): Flowable<List<PostEntity>> = postLocal.observePosts()
 
     override fun onSaveLocally(result: List<PostEntity>): Completable = postLocal.insertPosts(result)
 

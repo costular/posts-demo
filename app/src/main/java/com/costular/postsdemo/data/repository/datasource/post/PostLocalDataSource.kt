@@ -1,5 +1,6 @@
 package com.costular.postsdemo.data.repository.datasource.post
 
+import com.costular.postsdemo.data.database.PostDao
 import com.costular.postsdemo.data.model.CommentEntity
 import com.costular.postsdemo.data.model.PostEntity
 import com.costular.postsdemo.data.model.PostWithUserAndComments
@@ -11,7 +12,7 @@ import io.reactivex.Single
 
 interface PostLocalDataSource {
 
-    fun getPosts(): Flowable<List<PostEntity>>
+    fun observePosts(): Flowable<List<PostEntity>>
 
     fun getPostDetail(postId: PostId): Single<PostWithUserAndComments>
 
@@ -19,13 +20,14 @@ interface PostLocalDataSource {
 
 }
 
-class PostLocalDataSourceImpl :
-    PostLocalDataSource {
+class PostLocalDataSourceImpl(private val postDao: PostDao) : PostLocalDataSource {
 
-    override fun getPosts(): Flowable<List<PostEntity>> = Flowable.just(listOf()) // TODO
+    override fun observePosts(): Flowable<List<PostEntity>> = postDao.observePosts()
 
-    override fun getPostDetail(postId: PostId): Single<PostWithUserAndComments> = TODO() //
+    override fun getPostDetail(postId: PostId): Single<PostWithUserAndComments> =
+        postDao.getPostById(postId.toLong())
 
-    override fun insertPosts(posts: List<PostEntity>): Completable = Completable.complete()
+    override fun insertPosts(posts: List<PostEntity>): Completable =
+        postDao.insertOrUpdate(posts)
 
 }

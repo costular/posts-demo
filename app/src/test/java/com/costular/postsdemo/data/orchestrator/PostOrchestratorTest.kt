@@ -70,7 +70,7 @@ class PostOrchestratorTest {
 
         every { userRemote.getUsers() } returns Single.just(emptyList())
         every { commentRemote.getComments() } returns Single.just(emptyList())
-        every { postLocal.getPosts() } returns Flowable.just(emptyList())
+        every { postLocal.observePosts() } returns Flowable.just(emptyList())
         every { postRemote.getPosts() } returns Single.just(remotePosts)
 
         // When
@@ -103,7 +103,7 @@ class PostOrchestratorTest {
 
         every { userRemote.getUsers() } returns Single.just(emptyList())
         every { commentRemote.getComments() } returns Single.just(emptyList())
-        every { postLocal.getPosts() } returns local
+        every { postLocal.observePosts() } returns local
         every { postRemote.getPosts() } returns remote.firstOrError()
         every { postOrchestrator.onSaveLocally(capture(slot)) } answers { persister(slot.captured) }
 
@@ -166,7 +166,7 @@ class PostOrchestratorTest {
         )
         val expectedComments = commentEntityMapper.mapList(remoteComments)
 
-        every { postLocal.getPosts() } returns Flowable.just(emptyList())
+        every { postLocal.observePosts() } returns Flowable.just(emptyList())
         every { postRemote.getPosts() } returns Single.just(remotePosts)
         every { userRemote.getUsers() } returns Single.just(remoteUsers)
         every { commentRemote.getComments() } returns Single.just(remoteComments)

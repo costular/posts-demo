@@ -10,6 +10,6 @@ import io.reactivex.Single
 interface PostRepository {
 
     fun getPosts(): Flowable<Outcome<List<Post>>>
-    fun getPostDetail(postId: PostId): Single<Outcome<PostDetail>>
+    fun getPostDetail(postId: PostId): Single<PostDetail>
 
 }

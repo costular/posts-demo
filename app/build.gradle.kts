@@ -73,4 +73,6 @@ dependencies {
     androidTestImplementation(Libs.junitAndroid)
     androidTestImplementation(Libs.espresso)
     androidTestImplementation(Libs.navigationTesting)
+    androidTestImplementation(Libs.coreTesting)
+    androidTestImplementation(Libs.truth)
 }

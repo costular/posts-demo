@@ -1,5 +1,6 @@
 package com.costular.postsdemo.data.repository.datasource.comment
 
+import com.costular.postsdemo.data.database.CommentDao
 import com.costular.postsdemo.data.model.CommentEntity
 import io.reactivex.Completable
 
@@ -9,10 +10,9 @@ interface CommentLocalDataSource {
 
 }
 
-class CommentLocalDataSourceImpl : CommentLocalDataSource {
+class CommentLocalDataSourceImpl(private val commentDao: CommentDao) : CommentLocalDataSource {
 
-    override fun insertComments(comments: List<CommentEntity>): Completable {
-        return Completable.complete() // TODO
-    }
+    override fun insertComments(comments: List<CommentEntity>): Completable =
+        commentDao.insertOrUpdate(comments)
 
 }

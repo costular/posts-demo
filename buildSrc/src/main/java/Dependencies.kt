@@ -39,6 +39,7 @@ object Libs {
     val junitAndroid = "androidx.test.ext:junit:1.1.1"
     val espresso = "androidx.test.espresso:espresso-core:3.2.0"
     val navigationTesting = "androidx.navigation:navigation-testing:${Versions.navigation}"
+    val coreTesting = "androidx.arch.core:core-testing:${Versions.coreTesting}"
 
 }
 
@@ -62,6 +63,7 @@ object Versions {
     val junit = "4.12"
     val truth = "1.0.1"
     val moshi = "1.9.2"
+    val coreTesting = "2.1.0"
 
 
 }
