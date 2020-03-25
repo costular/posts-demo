@@ -17,7 +17,7 @@ class PostRepositoryImpl(
     private val postDetailMapper: PostDetailMapper
 ) : PostRepository {
 
-    override fun getPosts(): Flowable<Outcome<List<Post>>> = postOrchestrator.fetch()
+    override fun observePosts(): Flowable<Outcome<List<Post>>> = postOrchestrator.fetch()
 
     override fun getPostDetail(postId: PostId): Single<PostDetail> =
         postLocalDataSource.getPostDetail(postId)
