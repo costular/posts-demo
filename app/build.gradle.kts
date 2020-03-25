@@ -26,10 +26,16 @@ android {
             }
         }
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            buildConfigField("String", Config.API_BASE, "http://jsonplaceholder.typicode.com/")
+        }
+        getByName("debug") {
+            // This way we could set a different url depending on the variant or flavor
+            buildConfigField("String", Config.API_BASE, "http://jsonplaceholder.typicode.com/")
         }
     }
     compileOptions {

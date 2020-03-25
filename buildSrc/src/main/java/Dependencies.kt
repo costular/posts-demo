@@ -1,3 +1,8 @@
+
+object Config {
+    val API_BASE = "API_BASE"
+}
+
 object App {
 
     val compileVersion = 29
