@@ -1,8 +1,7 @@
 package com.costular.postsdemo.data.repository.datasource.post
 
-import com.costular.postsdemo.data.model.CommentDTO
 import com.costular.postsdemo.data.model.PostDTO
-import com.costular.postsdemo.data.model.UserDTO
+import com.costular.postsdemo.data.net.PostApi
 import io.reactivex.Single
 
 interface PostRemoteDataSource {
@@ -11,8 +10,8 @@ interface PostRemoteDataSource {
 
 }
 
-class PostRemoteDataSourceImpl : PostRemoteDataSource {
+class PostRemoteDataSourceImpl(private val postApi: PostApi) : PostRemoteDataSource {
 
-    override fun getPosts(): Single<List<PostDTO>> = Single.just(listOf())
+    override fun getPosts(): Single<List<PostDTO>> = postApi.getPosts()
 
 }
