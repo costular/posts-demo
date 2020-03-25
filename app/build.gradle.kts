@@ -35,7 +35,7 @@ android {
         }
         getByName("debug") {
             // This way we could set a different url depending on the variant or flavor
-            buildConfigField("String", Config.API_BASE, "http://jsonplaceholder.typicode.com/")
+            buildConfigField("String", Config.API_BASE, "\"http://jsonplaceholder.typicode.com/\"")
         }
     }
     compileOptions {
