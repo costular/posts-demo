@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -17,6 +19,12 @@ android {
         versionCode = App.versionCode
         versionName = App.versionName
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = mapOf("room.schemaLocation" to "$projectDir/schemas")
+            }
+        }
     }
     buildTypes {
         getByName("release") {
@@ -35,30 +43,39 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}")
+    implementation(Libs.kotlin)
 
-    implementation("androidx.appcompat:appcompat:${Versions.appCompat}")
-    implementation("androidx.core:core-ktx:${Versions.ktx}")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}")
-    implementation("androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}")
-    implementation("com.google.android.material:material:${Versions.material}")
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.navigation}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.navigation}")
-    implementation("org.koin:koin-androidx-viewmodel:${Versions.koin}")
-    implementation("org.koin:koin-androidx-fragment:${Versions.koin}")
-    implementation("com.jakewharton.threetenabp:threetenabp:${Versions.threeTen}")
-    implementation("io.reactivex.rxjava2:rxjava:${Versions.rxJava}")
-    implementation("io.reactivex.rxjava2:rxkotlin:${Versions.rxKotlin}")
-    implementation("io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}")
+    implementation(Libs.appCompat)
+    implementation(Libs.ktx)
+    implementation(Libs.lifecycle)
+    implementation(Libs.constraintLayout)
+    implementation(Libs.material)
+    implementation(Libs.navigation)
+    implementation(Libs.navigationUi)
+    implementation(Libs.koinViewModel)
+    implementation(Libs.koinFragment)
+    implementation(Libs.rxJava)
+    implementation(Libs.rxKotlin)
+    implementation(Libs.rxAndroid)
+    implementation(Libs.room)
+    kapt(Libs.roomCompiler)
+    implementation(Libs.roomRxJava)
+    implementation(Libs.moshi)
+    kapt(Libs.moshiCodeGenCompiler)
+    implementation(Libs.retrofit)
+    implementation(Libs.retrofitMoshi)
+    implementation(Libs.retrofitRx)
 
-    testImplementation("junit:junit:${Versions.junit}")
-    testImplementation("org.koin:koin-test:${Versions.koin}")
-    testImplementation("io.mockk:mockk:${Versions.mockk}")
-    testImplementation("org.threeten:threetenbp:1.3.2")
+    testImplementation(Libs.junit)
+    testImplementation(Libs.koinTest)
+    testImplementation(Libs.mockk)
+    testImplementation(Libs.truth)
 
-    debugImplementation("androidx.fragment:fragment-testing:${Versions.fragment}")
+    debugImplementation(Libs.fragmentTest)
 
-    androidTestImplementation("androidx.test.ext:junit:1.1.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
-    androidTestImplementation("androidx.navigation:navigation-testing:${Versions.navigation}")
+    androidTestImplementation(Libs.junitAndroid)
+    androidTestImplementation(Libs.espresso)
+    androidTestImplementation(Libs.navigationTesting)
+    androidTestImplementation(Libs.coreTesting)
+    androidTestImplementation(Libs.truth)
 }
