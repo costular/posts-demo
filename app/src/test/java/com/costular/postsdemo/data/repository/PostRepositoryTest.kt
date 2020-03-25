@@ -1,4 +1,4 @@
-package com.costular.postsdemo.domain
+package com.costular.postsdemo.data.repository
 
 import com.costular.postsdemo.data.mapper.CommentMapper
 import com.costular.postsdemo.data.mapper.PostDetailMapper
@@ -7,9 +7,9 @@ import com.costular.postsdemo.data.model.CommentEntity
 import com.costular.postsdemo.data.model.PostEntity
 import com.costular.postsdemo.data.model.PostWithUserAndComments
 import com.costular.postsdemo.data.model.UserEntity
-import com.costular.postsdemo.data.repository.PostRepositoryImpl
 import com.costular.postsdemo.data.repository.datasource.PostOrchestrator
 import com.costular.postsdemo.data.repository.datasource.post.PostLocalDataSource
+import com.costular.postsdemo.domain.PostRepository
 import com.costular.postsdemo.domain.model.*
 import io.mockk.every
 import io.mockk.mockk
