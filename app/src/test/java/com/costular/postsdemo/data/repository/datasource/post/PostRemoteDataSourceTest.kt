@@ -1,4 +1,4 @@
-package com.costular.postsdemo.data.repository
+package com.costular.postsdemo.data.repository.datasource.post
 
 import com.costular.postsdemo.data.model.PostDTO
 import com.costular.postsdemo.data.net.PostApi
