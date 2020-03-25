@@ -1,6 +1,6 @@
 package com.costular.postsdemo
 
-import com.costular.postsdemo.data.network.SchedulerProvider
+import com.costular.postsdemo.util.network.SchedulerProvider
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.TestScheduler
 

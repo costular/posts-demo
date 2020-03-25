@@ -62,6 +62,9 @@ dependencies {
     implementation(Libs.roomRxJava)
     implementation(Libs.moshi)
     kapt(Libs.moshiCodeGenCompiler)
+    implementation(Libs.retrofit)
+    implementation(Libs.retrofitMoshi)
+    implementation(Libs.retrofitRx)
 
     testImplementation(Libs.junit)
     testImplementation(Libs.koinTest)

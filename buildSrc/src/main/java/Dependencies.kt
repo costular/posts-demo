@@ -29,6 +29,9 @@ object Libs {
     val roomRxJava = "androidx.room:room-rxjava2:${Versions.room}"
     val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     val moshiCodeGenCompiler = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+    val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    val retrofitRx = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
+    val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
 
     val junit = "junit:junit:${Versions.junit}"
     val koinTest = "org.koin:koin-test:${Versions.koin}"
@@ -64,6 +67,7 @@ object Versions {
     val truth = "1.0.1"
     val moshi = "1.9.2"
     val coreTesting = "2.1.0"
+    val retrofit = "2.8.0"
 
 
 }

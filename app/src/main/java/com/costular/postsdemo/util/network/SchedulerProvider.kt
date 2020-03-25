@@ -1,4 +1,4 @@
-package com.costular.postsdemo.data.network
+package com.costular.postsdemo.util.network
 
 import io.reactivex.Scheduler
 
