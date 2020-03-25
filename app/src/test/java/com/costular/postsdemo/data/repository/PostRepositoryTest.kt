@@ -49,7 +49,7 @@ class PostRepositoryTest {
         every { postOrchestrator.fetch() } returns orchestratorStream
 
         // When
-        val test = postRepository.getPosts().test()
+        val test = postRepository.observePosts().test()
         orchestratorStream.run {
             onNext(Outcome.Loading)
             onNext(Outcome.Success(posts))
