@@ -36,7 +36,7 @@ abstract class DataOrchestrator<Domain, Local, Remote> {
 
     abstract fun retrieveLocal(): Flowable<Local>
 
-    abstract fun onSaveLocally(result: Local): Completable
+    abstract fun onSaveLocally(result: Local)
 
     abstract val localMapper: (input: Remote) -> Local
     abstract val returnMapper: (input: Local) -> Domain

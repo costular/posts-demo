@@ -8,7 +8,7 @@ import io.reactivex.Single
 class TestDataOrchestrator(
     private val remote: Single<TestDTO>,
     private val local: Flowable<TestEntity>,
-    private val persister: (TestEntity) -> Completable
+    private val persister: (TestEntity) -> Unit
 ) : DataOrchestrator<Test, TestEntity, TestDTO>() {
 
     override val localMapper: (input: TestDTO) -> TestEntity = { TestEntity(it.id) }
@@ -18,6 +18,6 @@ class TestDataOrchestrator(
 
     override fun retrieveLocal(): Flowable<TestEntity> = local
 
-    override fun onSaveLocally(result: TestEntity): Completable = persister(result)
+    override fun onSaveLocally(result: TestEntity) = persister(result)
 
 }

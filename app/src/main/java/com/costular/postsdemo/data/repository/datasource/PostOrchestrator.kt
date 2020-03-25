@@ -46,6 +46,6 @@ class PostOrchestrator(
 
     override fun retrieveLocal(): Flowable<List<PostEntity>> = postLocal.observePosts()
 
-    override fun onSaveLocally(result: List<PostEntity>): Completable = postLocal.insertPosts(result)
+    override fun onSaveLocally(result: List<PostEntity>) = postLocal.insertPosts(result)
 
 }

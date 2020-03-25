@@ -3,7 +3,6 @@ package com.costular.postsdemo.data.orchestrator
 import com.costular.postsdemo.domain.model.Outcome
 import io.mockk.mockk
 import io.mockk.verify
-import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
 import io.reactivex.processors.PublishProcessor
@@ -17,7 +16,7 @@ class DataOrchestratorTest {
     @Test
     fun `when fetching should emit loading event`() {
         // Given
-        val persister: (TestEntity) -> Completable = mockk()
+        val persister: (TestEntity) -> Unit = mockk()
 
         val testDataOrchestrator = TestDataOrchestrator(
             Single.just(TestDTO(1L)),
@@ -38,7 +37,7 @@ class DataOrchestratorTest {
     fun `when fetching should emit loading and success afterwards`() {
         // Given
         val id = 10L
-        val persister: (TestEntity) -> Completable = { Completable.complete() }
+        val persister: (TestEntity) -> Unit = {  }
 
         val testDataOrchestrator = TestDataOrchestrator(
             Single.just(TestDTO(id)),
@@ -62,7 +61,7 @@ class DataOrchestratorTest {
     fun `given a network error is thrown when fetching should emit an error`() {
         // Given
         val id = 11L
-        val persister: (TestEntity) -> Completable = mockk()
+        val persister: (TestEntity) -> Unit = mockk()
         val exception = IOException("something went wrong")
 
         val testDataOrchestrator = TestDataOrchestrator(
@@ -93,7 +92,7 @@ class DataOrchestratorTest {
 
         val local = PublishProcessor.create<TestEntity>()
         val remote = PublishSubject.create<TestDTO>()
-        val persister: (TestEntity) -> Completable = mockk()
+        val persister: (TestEntity) -> Unit = mockk()
 
         val testDataOrchestrator = TestDataOrchestrator(
             remote.firstOrError(),
@@ -126,10 +125,7 @@ class DataOrchestratorTest {
 
         val local = PublishProcessor.create<TestEntity>()
         val remote = PublishSubject.create<TestDTO>()
-        val persister: (TestEntity) -> Completable = {
-            local.onNext(TestEntity(it.id))
-            Completable.complete()
-        }
+        val persister: (TestEntity) -> Unit = { local.onNext(TestEntity(it.id)) }
 
         val testDataOrchestrator = TestDataOrchestrator(
             remote.firstOrError(),
@@ -159,7 +155,7 @@ class DataOrchestratorTest {
         val networkException = IOException("something went wrong")
         val localException = SQLException("something went wrong with the database")
 
-        val persister: (TestEntity) -> Completable = mockk()
+        val persister: (TestEntity) -> Unit = mockk()
 
         val testDataOrchestrator = TestDataOrchestrator(
             Single.error(networkException),
@@ -191,10 +187,7 @@ class DataOrchestratorTest {
 
         val local = PublishProcessor.create<TestEntity>()
         val remote = PublishSubject.create<TestDTO>()
-        val persister: (TestEntity) -> Completable = {
-            local.onNext(TestEntity(it.id))
-            Completable.complete()
-        }
+        val persister: (TestEntity) -> Unit = { local.onNext(TestEntity(it.id)) }
 
         val testDataOrchestrator = TestDataOrchestrator(
             remote.firstOrError(),
