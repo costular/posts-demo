@@ -1,7 +1,7 @@
 # Post demo 📰🚀
 
 ## Stack
-- **100% **Kotlin
+- **100%** Kotlin
 - RxJava2
 - Jetpack navigation
 - Retrofit
