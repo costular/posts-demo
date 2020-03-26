@@ -49,6 +49,12 @@ class PostsFragment : Fragment(R.layout.fragment_posts) {
                     resources.getDimensionPixelOffset(R.dimen.card_vertical_margin)
                 )
             )
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+                    appbar.isSelected = recyclerView.canScrollVertically(-1)
+                }
+            })
         }
     }
 
