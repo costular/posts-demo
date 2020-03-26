@@ -5,6 +5,7 @@ import com.costular.postsdemo.di.app
 import com.costular.postsdemo.di.comments
 import com.costular.postsdemo.di.posts
 import com.costular.postsdemo.di.users
+import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
@@ -18,6 +19,7 @@ class MainApp : Application() {
     private fun initKoin() {
         startKoin {
             androidLogger()
+            androidContext(this@MainApp)
             modules(listOf(
                 app,
                 comments,

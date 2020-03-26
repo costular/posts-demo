@@ -6,6 +6,8 @@ import com.costular.postsdemo.data.mapper.UserMapper
 import com.costular.postsdemo.data.net.UserApi
 import com.costular.postsdemo.data.repository.datasource.user.UserLocalDataSource
 import com.costular.postsdemo.data.repository.datasource.user.UserLocalDataSourceImpl
+import com.costular.postsdemo.data.repository.datasource.user.UserRemoteDataSource
+import com.costular.postsdemo.data.repository.datasource.user.UserRemoteDataSourceImpl
 import com.costular.postsdemo.data.util.AvatarHelper
 import com.costular.postsdemo.data.util.AvatarHelperImpl
 import org.koin.dsl.module
@@ -23,6 +25,8 @@ val users = module {
     single { get<MainDatabase>().userDao() }
 
     single<UserLocalDataSource> { UserLocalDataSourceImpl(get()) }
+
+    single<UserRemoteDataSource> { UserRemoteDataSourceImpl(get()) }
 
     single<UserApi> { get<Retrofit>().create() }
 
