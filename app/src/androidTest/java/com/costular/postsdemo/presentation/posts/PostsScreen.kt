@@ -7,7 +7,6 @@ import com.agoda.kakao.recycler.KRecyclerView
 import com.agoda.kakao.screen.Screen
 import com.agoda.kakao.text.KTextView
 import com.costular.postsdemo.R
-import kotlinx.android.synthetic.main.fragment_posts.*
 import org.hamcrest.Matcher
 
 class PostsScreen : Screen<PostsScreen>() {
@@ -20,6 +19,6 @@ class PostsScreen : Screen<PostsScreen>() {
 }
 
 class PostItem(parent: Matcher<View>) : KRecyclerItem<PostItem>(parent) {
-    val postTitle: KTextView = KTextView(parent) { withId(R.id.postTitleText) }
+    val postTitle: KTextView = KTextView(parent) { withId(R.id.postDetailTitleText) }
     val postDescription: KTextView = KTextView(parent) { withId(R.id.postDescriptionText) }
 }

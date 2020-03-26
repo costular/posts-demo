@@ -3,6 +3,7 @@
 
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">jsonplaceholder.typicode.com</domain>
+        <domain includeSubdomains="false">api.adorable.io</domain>
     </domain-config>
 
 </network-security-config>

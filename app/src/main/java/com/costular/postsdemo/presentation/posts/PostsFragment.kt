@@ -3,14 +3,17 @@ package com.costular.postsdemo.presentation.posts
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.costular.postsdemo.R
 import com.costular.postsdemo.domain.model.Outcome
 import com.costular.postsdemo.domain.model.Post
+import com.costular.postsdemo.domain.model.PostId
 import com.costular.postsdemo.util.MarginItemDecoration
 import com.costular.postsdemo.util.extensions.gone
+import com.costular.postsdemo.util.extensions.handle
 import com.costular.postsdemo.util.extensions.observe
 import com.costular.postsdemo.util.extensions.visible
 import kotlinx.android.synthetic.main.fragment_posts.*
@@ -54,6 +57,9 @@ class PostsFragment : Fragment(R.layout.fragment_posts) {
             observe(posts) {
                 onPostsReceived(it)
             }
+            observe (openPostDetailEvent) {
+                it.handle { postId -> navigateToPost(postId) }
+            }
         }
 
         postsViewModel.observePosts()
@@ -75,6 +81,11 @@ class PostsFragment : Fragment(R.layout.fragment_posts) {
 
     private fun hideLoading() {
         postsLoading.gone()
+    }
+
+    private fun navigateToPost(postId: PostId) {
+        val action = PostsFragmentDirections.actionPostsFragmentToPostDetailFragment(postId.toLong())
+        findNavController().navigate(action)
     }
 
 }

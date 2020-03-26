@@ -20,6 +20,6 @@ fun <T> MutableLiveData<Event<T>>.call(value: T) {
     this.value = Event(value)
 }
 
-fun MutableLiveData<Event<Unit>>.handle(listener: () -> Unit) {
-    value?.getContentIfNotHandled()?.let { listener() }
+fun <T> Event<T>.handle(listener: (T) -> Unit) {
+    getContentIfNotHandled()?.let { listener(it) }
 }

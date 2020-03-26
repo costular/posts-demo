@@ -12,7 +12,7 @@ class PostViewHolder(
 
     fun bind(post: Post) {
         with (itemView) {
-            postTitleText.text = post.title
+            postDetailTitleText.text = post.title
             postDescriptionText.text = post.description
             setOnClickListener { clickListener.invoke(post) }
         }
