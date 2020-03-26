@@ -21,3 +21,18 @@ val mockedModule = module(override = true) {
     }
 
 }
+
+val mockedEmptyModule = module(override = true) {
+
+    single<PostRepository> { PostFakeEmptyRepositoryImpl() }
+
+    single { ObservePosts(get()) }
+
+    viewModel {
+        PostsViewModel(
+            get(),
+            get()
+        )
+    }
+
+}

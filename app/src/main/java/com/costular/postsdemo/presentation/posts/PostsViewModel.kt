@@ -32,6 +32,7 @@ class PostsViewModel(
             .execute()
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.main)
+            .filter { it !is Outcome.Failure }
             .subscribeBy(
                 onError = {
                     // This won't be called since we're wrapping the exceptions but just in case
