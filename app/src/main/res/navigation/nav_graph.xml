@@ -6,5 +6,17 @@
     <fragment
         android:id="@+id/postsFragment"
         android:name="com.costular.postsdemo.presentation.posts.PostsFragment"
-        android:label="@string/post_title" />
+        android:label="@string/post_title" >
+        <action
+            android:id="@+id/action_postsFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.costular.postsdemo.presentation.postdetail.PostDetailFragment"
+        android:label="PostDetailFragment" >
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
 </navigation>

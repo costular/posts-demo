@@ -1,4 +1,4 @@
-package com.costular.postsdemo.presentation.posts
+package com.costular.postsdemo.presentation.util
 
 import com.costular.postsdemo.domain.PostRepository
 import com.costular.postsdemo.domain.model.*

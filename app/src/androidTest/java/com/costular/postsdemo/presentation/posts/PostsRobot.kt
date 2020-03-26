@@ -1,7 +1,4 @@
-package com.costular.postsdemo.presentation.robots
-
-import com.costular.postsdemo.presentation.posts.PostItem
-import com.costular.postsdemo.presentation.posts.PostsScreen
+package com.costular.postsdemo.presentation.posts
 
 fun posts(function: PostsRobot.() -> Unit) = PostsRobot().apply { function() }
 
@@ -19,7 +16,7 @@ class PostsRobot {
         }
     }
 
-    fun send(function: Result.() -> Unit): Result = Result().apply { function() }
+    fun check(function: Result.() -> Unit): Result = Result().apply { function() }
 
     inner class Result {
         fun isLoadingDisplayed() {

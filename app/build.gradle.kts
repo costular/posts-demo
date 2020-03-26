@@ -71,6 +71,8 @@ dependencies {
     implementation(Libs.retrofit)
     implementation(Libs.retrofitMoshi)
     implementation(Libs.retrofitRx)
+    implementation(Libs.glide)
+    kapt(Libs.glideCompiler)
 
     testImplementation(Libs.junit)
     testImplementation(Libs.koinTest)
