@@ -21,6 +21,7 @@ class PostDetailMapperTest {
             PostEntity(
                 3L,
                 1L,
+                "post title",
                 "post description test"
             ),
             UserEntity(
@@ -41,6 +42,7 @@ class PostDetailMapperTest {
         )
         val expected = PostDetail(
             3L.toPostId(),
+            "post title",
             "post description test",
             User(
                 10L.toUserId(),

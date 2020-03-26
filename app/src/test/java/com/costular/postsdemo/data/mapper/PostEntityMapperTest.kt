@@ -15,12 +15,13 @@ class PostEntityMapperTest {
         val postEntity = PostDTO(
             1L,
             1L,
-            "",
+            "post title",
             "post description test"
         )
         val expected = PostEntity(
             1L,
             1L,
+            "post title",
             "post description test"
         )
 

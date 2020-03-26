@@ -12,5 +12,6 @@ fun Long.toPostId(): PostId = PostId(this)
 
 data class Post(
     val id: PostId,
+    val title: String,
     val description: String
 )
