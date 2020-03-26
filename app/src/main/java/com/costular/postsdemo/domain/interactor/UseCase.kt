@@ -11,6 +11,4 @@ abstract class UseCase<out T, in Params> {
 
 }
 
-fun <T> UseCase<out T, UseCase.None>.execute(): T = execute(
-    UseCase.None()
-)
+fun <T> UseCase<T, UseCase.None>.execute(): T = execute(UseCase.None())
