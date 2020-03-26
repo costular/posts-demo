@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:popupTheme="@style/AppTheme.PopUpOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/postDetailTitleText"
+            style="@style/PostDetail_Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="This is a post" />
+
+        <ImageView
+            android:id="@+id/authorAvatarImage"
+            style="@style/PostDetail_Avatar"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/postDetailTitleText"
+            app:layout_constraintTop_toBottomOf="@+id/postDetailTitleText"
+            app:srcCompat="@drawable/ic_launcher_foreground"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/authorNameText"
+            style="@style/PostDetail_Author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/authorAvatarImage"
+            app:layout_constraintStart_toEndOf="@+id/authorAvatarImage"
+            app:layout_constraintTop_toTopOf="@+id/authorAvatarImage"
+            tools:text="Username" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitXY"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/authorNameText"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/authorNameText"
+            app:srcCompat="@drawable/ic_comments" />
+
+        <TextView
+            android:id="@+id/commentsCountText"
+            style="@style/PostDetail_CommentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            tools:text="23" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/bg_circle_separator"
+            app:layout_constraintBottom_toBottomOf="@+id/authorNameText"
+            app:layout_constraintStart_toEndOf="@+id/authorNameText"
+            app:layout_constraintTop_toTopOf="@+id/authorNameText" />
+
+        <TextView
+            android:id="@+id/postDetailBodyText"
+            style="@style/PostDetail_Body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="@+id/postDetailTitleText"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/postDetailTitleText"
+            app:layout_constraintTop_toBottomOf="@+id/authorAvatarImage"
+            tools:text="This is the post's description so will have some characters or maybe not" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
