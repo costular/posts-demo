@@ -9,6 +9,7 @@ class PostMapper : Mapper<PostEntity, Post> {
     override fun map(input: PostEntity): Post =
         Post(
             input.id.toPostId(),
+            input.title,
             input.description
         )
 

@@ -8,5 +8,6 @@ import androidx.room.PrimaryKey
 data class PostEntity(
     @PrimaryKey val id: Long,
     @ColumnInfo(name = "user_id") val userId: Long,
+    val title: String,
     val description: String
 )

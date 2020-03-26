@@ -51,6 +51,7 @@ class MainDatabaseTest {
             PostEntity(
                 1L,
                 3L,
+                "this is a title",
                 "description test"
             )
         )
@@ -88,6 +89,7 @@ class MainDatabaseTest {
         val post = PostEntity(
             1L,
             1L,
+            "this is a title",
             "this is a sample post"
         )
         val user = UserEntity(

@@ -31,7 +31,7 @@ android {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-            buildConfigField("String", Config.API_BASE, "http://jsonplaceholder.typicode.com/")
+            buildConfigField("String", Config.API_BASE, "\"http://jsonplaceholder.typicode.com/\"")
         }
         getByName("debug") {
             // This way we could set a different url depending on the variant or flavor
@@ -71,17 +71,22 @@ dependencies {
     implementation(Libs.retrofit)
     implementation(Libs.retrofitMoshi)
     implementation(Libs.retrofitRx)
+    implementation(Libs.glide)
+    kapt(Libs.glideCompiler)
 
     testImplementation(Libs.junit)
     testImplementation(Libs.koinTest)
     testImplementation(Libs.mockk)
     testImplementation(Libs.truth)
+    testImplementation(Libs.coreTesting)
 
     debugImplementation(Libs.fragmentTest)
 
     androidTestImplementation(Libs.junitAndroid)
     androidTestImplementation(Libs.espresso)
+    androidTestImplementation(Libs.kakao)
     androidTestImplementation(Libs.navigationTesting)
     androidTestImplementation(Libs.coreTesting)
     androidTestImplementation(Libs.truth)
+    androidTestImplementation(Libs.koinTest)
 }

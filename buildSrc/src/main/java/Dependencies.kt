@@ -37,6 +37,8 @@ object Libs {
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val retrofitRx = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
     val junit = "junit:junit:${Versions.junit}"
     val koinTest = "org.koin:koin-test:${Versions.koin}"
@@ -45,10 +47,10 @@ object Libs {
     val fragmentTest = "androidx.fragment:fragment-testing:${Versions.fragment}"
 
     val junitAndroid = "androidx.test.ext:junit:1.1.1"
-    val espresso = "androidx.test.espresso:espresso-core:3.2.0"
+    val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     val navigationTesting = "androidx.navigation:navigation-testing:${Versions.navigation}"
     val coreTesting = "androidx.arch.core:core-testing:${Versions.coreTesting}"
-
+    val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
 }
 
 object Versions {
@@ -73,6 +75,8 @@ object Versions {
     val moshi = "1.9.2"
     val coreTesting = "2.1.0"
     val retrofit = "2.8.0"
-
+    val kakao = "2.3.0"
+    val glide = "4.11.0"
+    val espresso = "3.2.0"
 
 }

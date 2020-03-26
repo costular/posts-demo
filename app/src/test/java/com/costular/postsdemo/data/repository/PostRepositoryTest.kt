@@ -42,8 +42,8 @@ class PostRepositoryTest {
     fun `When get the posts then should return them from local data source`() {
         // Given
         val posts = listOf(
-            Post(PostId(1L), "test1"),
-            Post(PostId(2L), "test2")
+            Post(PostId(1L), "titel1", "test1"),
+            Post(PostId(2L), "title1", "test2")
         )
         val orchestratorStream = PublishProcessor.create<Outcome<List<Post>>>()
         every { postOrchestrator.fetch() } returns orchestratorStream
@@ -74,7 +74,8 @@ class PostRepositoryTest {
             PostEntity(
                 postId,
                 1L,
-                "a sample post"
+                "a sample post",
+                "description"
             ),
             UserEntity(
                 1L,
@@ -96,6 +97,7 @@ class PostRepositoryTest {
         val expected = PostDetail(
             postId.toPostId(),
             "a sample post",
+            "description",
             User(
                 1L.toUserId(),
                 "name",

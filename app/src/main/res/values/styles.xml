@@ -1,11 +1,44 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="Widget.PostCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">@dimen/card_radius</item>
+        <item name="strokeColor">@color/colorBorder</item>
+        <item name="strokeWidth">@dimen/card_stroke_width</item>
+    </style>
+
+    <style name="PostCard_Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?textAppearanceHeadline6</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="PostCard_Description" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?textAppearanceBody2</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="PostDetail_Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?textAppearanceHeadline3</item>
+    </style>
+
+    <style name="PostDetail_Body" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?textAppearanceBody1</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+
+    <style name="PostDetail_Avatar">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+    </style>
+
+    <style name="PostDetail_Author" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?textAppearanceBody1</item>
+    </style>
+
+    <style name="PostDetail_CommentCount" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?textAppearanceBody2</item>
     </style>
 
 </resources>

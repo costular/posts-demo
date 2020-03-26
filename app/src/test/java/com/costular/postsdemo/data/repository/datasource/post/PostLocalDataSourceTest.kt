@@ -31,7 +31,8 @@ class PostLocalDataSourceTest {
             PostEntity(
                 1L,
                 1L,
-                "whatever"
+                "whatever",
+                "some description"
             )
         )
         every { postDao.observePosts() } returns Flowable.just(posts)
@@ -52,7 +53,8 @@ class PostLocalDataSourceTest {
             PostEntity(
                 postId,
                 1L,
-                "whatever"
+                "whatever",
+                "description"
             ),
             UserEntity(
                 1L,
@@ -79,7 +81,8 @@ class PostLocalDataSourceTest {
             PostEntity(
                 1L,
                 1L,
-                "whatever"
+                "whatever",
+                "some description"
             )
         )
 
