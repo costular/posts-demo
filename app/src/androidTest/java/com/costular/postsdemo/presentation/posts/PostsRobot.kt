@@ -36,6 +36,9 @@ class PostsRobot {
                 postDescription.hasText(description)
             }
 
+        fun isEmptyStateVisible() = postScreen.emptyState.isVisible()
+
+        fun isRecyclerViewGone() = postScreen.recycler.isGone()
     }
 
 }

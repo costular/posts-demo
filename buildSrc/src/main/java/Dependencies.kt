@@ -39,6 +39,7 @@ object Libs {
     val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+    val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
 
     val junit = "junit:junit:${Versions.junit}"
     val koinTest = "org.koin:koin-test:${Versions.koin}"
@@ -61,6 +62,7 @@ object Versions {
     val rxKotlin = "2.4.0"
     val rxAndroid = "2.1.1"
 
+    val lottie = "3.4.0"
     val room = "2.2.5"
     val material = "1.2.0-alpha05"
     val appCompat = "1.1.0"

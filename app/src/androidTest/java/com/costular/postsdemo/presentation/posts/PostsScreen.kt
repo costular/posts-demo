@@ -1,6 +1,8 @@
 package com.costular.postsdemo.presentation.posts
 
 import android.view.View
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import com.agoda.kakao.common.views.KView
 import com.agoda.kakao.progress.KProgressBar
 import com.agoda.kakao.recycler.KRecyclerItem
 import com.agoda.kakao.recycler.KRecyclerView
@@ -16,6 +18,7 @@ class PostsScreen : Screen<PostsScreen>() {
     }, itemTypeBuilder = {
         itemType(::PostItem)
     })
+    val emptyState = KView { withId(R.id.emptyLayout) }
 }
 
 class PostItem(parent: Matcher<View>) : KRecyclerItem<PostItem>(parent) {
