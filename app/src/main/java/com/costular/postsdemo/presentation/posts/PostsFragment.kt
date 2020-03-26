@@ -74,10 +74,7 @@ class PostsFragment : Fragment(R.layout.fragment_posts) {
     private fun onPostsReceived(result: Outcome<List<Post>>) {
         when (result) {
             is Outcome.Loading -> showLoading()
-            is Outcome.Success -> {
-                hideLoading()
-                adapter.submitList(result.posts)
-            }
+            is Outcome.Success -> onPostsReceived(result.posts)
         }
     }
 
@@ -87,6 +84,19 @@ class PostsFragment : Fragment(R.layout.fragment_posts) {
 
     private fun hideLoading() {
         postsLoading.gone()
+    }
+
+    private fun onPostsReceived(posts: List<Post>) {
+        hideLoading()
+
+        if (posts.isNotEmpty()) {
+            emptyLayout.gone()
+            postRecycler.visible()
+            adapter.submitList(posts)
+        } else {
+            postRecycler.gone()
+            emptyLayout.visible()
+        }
     }
 
     private fun navigateToPost(postId: PostId) {

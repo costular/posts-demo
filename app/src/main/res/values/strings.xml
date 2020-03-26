@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Posts Demo</string>
 
+    <!-- Post -->
+    <string name="post_empty_message">It\'s empty :(</string>
+
     <!-- Posts page -->
     <string name="post_title">Posts</string>
 </resources>

@@ -6,6 +6,10 @@
         <item name="strokeWidth">@dimen/card_stroke_width</item>
     </style>
 
+    <style name="PostEmpty_Title">
+        <item name="android:textAppearance">?textAppearanceHeadline6</item>
+    </style>
+
     <style name="PostCard_Title" parent="Widget.MaterialComponents.TextView">
         <item name="android:textAppearance">?textAppearanceHeadline6</item>
         <item name="android:maxLines">2</item>

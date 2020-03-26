@@ -10,6 +10,7 @@ import com.costular.postsdemo.R
 import com.costular.postsdemo.di.comments
 import com.costular.postsdemo.di.users
 import com.costular.postsdemo.presentation.util.appFake
+import com.costular.postsdemo.presentation.util.mockedEmptyModule
 import com.costular.postsdemo.presentation.util.mockedModule
 import com.google.common.truth.Truth
 import org.junit.Before
@@ -22,18 +23,16 @@ import org.koin.test.KoinTest
 @MediumTest
 class PostsFragmentTest : KoinTest {
 
-    @Before
-    fun setUp() {
+
+    @Test
+    fun testFirstElementShowsCorrectly() {
         loadKoinModules(
             listOf(
                 appFake,
                 mockedModule, comments, users
             )
         )
-    }
 
-    @Test
-    fun testFirstElementShowsCorrectly() {
         launchFragmentInContainer<PostsFragment>(themeResId = R.style.AppTheme)
 
         posts {
@@ -47,6 +46,13 @@ class PostsFragmentTest : KoinTest {
 
     @Test
     fun testNavigateToPostDetail() {
+        loadKoinModules(
+            listOf(
+                appFake,
+                mockedModule, comments, users
+            )
+        )
+
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext()
         )
@@ -61,6 +67,27 @@ class PostsFragmentTest : KoinTest {
         }
 
         Truth.assertThat(navController.currentDestination?.id).isEqualTo(R.id.postDetailFragment)
+    }
+
+    @Test
+    fun testEmptyStateShouldShow() {
+        loadKoinModules(
+            listOf(
+                appFake,
+                mockedEmptyModule,
+                comments,
+                users
+            )
+        )
+
+        launchFragmentInContainer<PostsFragment>(themeResId = R.style.AppTheme)
+
+        posts {
+            check {
+                isEmptyStateVisible()
+                isRecyclerViewGone()
+            }
+        }
     }
 
 }
