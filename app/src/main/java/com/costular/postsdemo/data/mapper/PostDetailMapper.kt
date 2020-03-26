@@ -12,6 +12,7 @@ class PostDetailMapper(
     override fun map(input: PostWithUserAndComments): PostDetail =
         PostDetail(
             input.post.id.toPostId(),
+            input.post.title,
             input.post.description,
             userMapper.map(input.user),
             commentMapper.mapList(input.comments)

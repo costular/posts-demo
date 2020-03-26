@@ -9,6 +9,7 @@ class PostEntityMapper : Mapper<PostDTO, PostEntity> {
         PostEntity(
             input.id,
             input.userId,
+            input.title,
             input.body
         )
 

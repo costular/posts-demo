@@ -90,8 +90,8 @@ class PostOrchestratorTest {
     @Test
     fun `Given local and delayed remote succeed when loading posts then should return success`() {
         // Given
-        val remotePosts = listOf(PostDTO(10L, 11L, "", "remote test"))
-        val localPosts = listOf(PostEntity(11L, 10L, "local test"))
+        val remotePosts = listOf(PostDTO(10L, 11L, "post title", "remote test"))
+        val localPosts = listOf(PostEntity(11L, 10L, "post title", "local test"))
         val slot = slot<List<PostEntity>>()
 
         val local = PublishProcessor.create<List<PostEntity>>()

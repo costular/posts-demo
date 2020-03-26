@@ -16,10 +16,12 @@ class PostMapperTest {
         val postEntity = PostEntity(
             1L,
             1L,
+            "post title",
             "post description"
         )
         val expected = Post(
             1L.toPostId(),
+            "post title",
             "post description"
         )
 
